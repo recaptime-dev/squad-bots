@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "global",
         "readme",
-        "devenv"
+        "devenv",
+        "github-actions"
     ]
 }
