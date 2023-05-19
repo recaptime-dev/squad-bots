@@ -1,0 +1,14 @@
+
+image:
+  file: .devcontainer/Dockerfile
+
+tasks:
+- init: mkdir ./.keybase-userdata
+  before: |
+    KEYBASE_NO_GUI=1 run_keybase
+    go install && npm i
+vscode:
+  extensions:
+    - golang.Go
+    - r3inbowari.gomodexplorer
+    - exiasr.hadolint

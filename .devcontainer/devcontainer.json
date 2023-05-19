@@ -1,0 +1,33 @@
+{
+    "name": "service-accounts.recaptime.dev/git",
+    "remoteUser": "gitpod",
+    "build": {
+        "dockerfile": "./Dockerfile"
+    },
+    "features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+    "postCreateCommand": {
+        "keybase-setup": "mkdir .keybase-userdata && KEYBASE_NO_GUI=1 run_keybase",
+        "setup": "go install && npm i"
+    },
+    "customizations": {
+		"vscode": {
+			"extensions": [
+				"golang.go",
+                "r3inbowari.gomodexplorer",
+                "exiasr.hadolint"
+			]
+		},
+		"codespaces": {
+			"repositories": {
+				"devcontainers/features": {
+					"permissions": {
+						"contents": "write",
+						"workflows": "write"
+					}
+				}
+			}
+		}
+	}
+}
