@@ -1,0 +1,23 @@
+{
+  "name": "@recaptime-dev/squad-bots",
+  "version": "1.0.0",
+  "description": "Monorepo for @RecapTimeBot and friends.",
+  "main": "index.js",
+  "scripts": {
+    "build:devenv": "DOCKER_BUILDKIT=1 docker build -t ghcr.io/recaptime/squad-bots/devenv:localhost -f .devcontainer/Dockerfile .devcontainer",
+    "devenv:vscode": "devcontainers up --workspace-"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RecapTime/squad-bots.git"
+  },
+  "author": "Recap Time Squad <squad@crew.recaptime.eu.org>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/RecapTime/squad-bots/issues"
+  },
+  "homepage": "https://github.com/RecapTime/squad-bots#readme",
+  "dependencies": {
+    "@devcontainers/cli": "^0.41.0"
+  }
+}
