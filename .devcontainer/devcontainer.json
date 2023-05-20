@@ -15,8 +15,8 @@
 		"vscode": {
 			"extensions": [
 				"golang.go",
-                "r3inbowari.gomodexplorer",
-                "exiasr.hadolint"
+                		"r3inbowari.gomodexplorer",
+                		"exiasr.hadolint"
 			]
 		},
 		"codespaces": {
@@ -24,7 +24,8 @@
 				"devcontainers/features": {
 					"permissions": {
 						"contents": "write",
-						"workflows": "write"
+						"workflows": "write",
+						"packages": "write"
 					}
 				}
 			}
