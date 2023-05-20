@@ -1,8 +1,7 @@
 {
     "name": "service-accounts.recaptime.dev/git",
     "remoteUser": "gitpod",
-    "build": {
-        "dockerfile": "./Dockerfile"
+    "image": "ghcr.io/recaptime/squad-bots/devenv:latest",
     },
     "features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
