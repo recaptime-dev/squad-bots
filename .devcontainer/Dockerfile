@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM gitpod/workspace-go
 
-LABEL org.opencontainers.image.source=https://github.com/RecapTime/squad-bots
+LABEL org.opencontainers.image.source=https://github.com/recaptime-dev/squad-bots
 
 ############################################################
 # Extracted from chunks:lang-node
@@ -33,6 +33,6 @@ RUN brew install cmake
 # The rest is installing Keybase itself and then some tools behind the scenes.
 ############################################################
 RUN wget https://prerelease.keybase.io/keybase_amd64.deb -O /tmp/keybase_amd64.deb \
-   && sudo apt-get install --yes /tmp/keybase_amd64.deb
+   && sudo install-packages /tmp/keybase_amd64.deb
 COPY --from=docker/buildx-bin /buildx /usr/libexec/docker/cli-plugins/docker-buildx
 RUN brew install gh glab hadolint shellcheck dopplerhq/cli/doppler
