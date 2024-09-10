@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/RecapTime/squad-bots#readme",
   "dependencies": {
-    "@devcontainers/cli": "^0.41.0"
+    "@devcontainers/cli": "^0.71.0"
   }
 }
