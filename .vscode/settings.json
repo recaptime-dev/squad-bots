@@ -1,8 +1,11 @@
 {
-    "conventionalCommits.scopes": [
-        "global",
-        "readme",
-        "devenv",
-        "github-actions"
-    ]
+  "conventionalCommits.scopes": [
+    "global",
+    "readme",
+    "devenv",
+    "github-actions",
+    "slackbot"
+  ],
+  "dotenv.enableAutocloaking": false,
+  "editor.tabSize": 2
 }

@@ -1,0 +1,46 @@
+{
+  "name": "bolt-ts-starter-template",
+  "version": "1.0.0",
+  "description": "A scaffold template for Slack apps",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm run start:hackclub",
+    "dev": "npm run dev:hackclub",
+    "start:hackclub": "dotenvx run -f .env.production -- ts-node ./app.ts",
+    "dev:hackclub": "dotenvx run -f .env.production -- ts-node-dev ./app.ts",
+    "lint": "eslint . --ext .ts"
+  },
+  "author": "Slack Technologies, LLC",
+  "license": "MIT",
+  "keywords": [
+    "slack",
+    "bolt",
+    "slackapi",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slack-samples/bolt-ts-starter-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slack-samples/bolt-ts-starter-template/issues"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.14.1",
+    "@prisma/client": "^5.19.1",
+    "@slack/bolt": "^3.21.1",
+    "dotenv": "~16.4.5",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "eslint": "~8.57.0",
+    "eslint-config-airbnb-base": "~15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-import": "~2.29.1",
+    "prisma": "^5.19.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  }
+}

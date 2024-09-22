@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("DATABASE_PREVIEW_URL")
+}
+
+model SlackUser {
+  slack_userId        String                 @id
+  roles               UserRole[]
+  is_staff            Boolean                @default(false)
+  banned              Boolean                @default(false)
+  ban_reason          String?
+  permission_requests BotPermissionRequest[]
+}
+
+model UserRole {
+  id                String      @id @default(uuid())
+  role_name         String
+  role_description  String
+  users             SlackUser[]
+  slack_userGroupId String?
+}
+
+model BotPermissionRequest {
+  id      String    @id @default(uuid())
+  user    SlackUser @relation(references: [slack_userId], fields: [user_id])
+  user_id String
+}
