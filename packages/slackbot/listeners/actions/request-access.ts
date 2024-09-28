@@ -1,14 +1,14 @@
 import { AllMiddlewareArgs, BlockAction, SlackActionMiddlewareArgs } from '@slack/bolt';
 import requestPermissionsPrompt from '../../lib/blocks/request_permissions';
 
-const requestAccessCallback = async ({ ack, client, body }:
+export const requestAccessCallback = async ({ ack, client, body }:
   AllMiddlewareArgs & SlackActionMiddlewareArgs<BlockAction>) => {
   try {
     await ack();
-    await client.views.update({
+    await client.views.open({
       trigger_id: body.trigger_id,
       view: requestPermissionsPrompt,
-    });
+    })
   } catch {
     await client.views.update({
       trigger_id: body.trigger_id,
@@ -39,4 +39,11 @@ const requestAccessCallback = async ({ ack, client, body }:
   }
 };
 
-export default requestAccessCallback;
+export const requestPermSubmissionHandler = async({ ack, client, body }:
+  AllMiddlewareArgs & SlackActionMiddlewareArgs<BlockAction>) => {
+    try {
+      const { state, user } = body;
+    } catch (error) {
+      console.error(error);
+    }
+}

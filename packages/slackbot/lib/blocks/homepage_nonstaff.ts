@@ -1,9 +1,12 @@
+import { HomeView } from '@slack/bolt';
+
 export default function homepageNonStaffView(
   uid: string,
   username?: string | null,
-) {
+): HomeView {
   return {
     type: 'home' as const,
+    callback_id: 'home_community-unverified',
     blocks: [
       {
         type: 'header',

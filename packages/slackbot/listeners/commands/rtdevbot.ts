@@ -1,16 +1,15 @@
-import { AllMiddlewareArgs, SlackCommandMiddlewareArgs } from '@slack/bolt';
+import { AllMiddlewareArgs, SlackCommandMiddlewareArgs } from "@slack/bolt";
 
-const botCommandHandler = async ({ ack, respond, payload }:
+const botCommandHandler = async ({ ack, respond, payload, say }:
   AllMiddlewareArgs & SlackCommandMiddlewareArgs) => {
   try {
     await ack();
-    if (payload.text === 'help') {
-
-    }
-    await respond('We\'re working onto it soon :)');
+    await respond({
+      text: "Working onto it soon, keep your eyes peeled :eyes:",
+      response_type: "ephemeral",
+    });
   } catch (error) {
     console.error(error);
-    await respond('Something gone wrong, but we\'re looking into it soon!');
   }
 };
 

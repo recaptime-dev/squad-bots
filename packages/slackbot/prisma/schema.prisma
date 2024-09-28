@@ -6,33 +6,34 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "./lib"
 }
 
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
   shadowDatabaseUrl = env("DATABASE_PREVIEW_URL")
 }
 
 model SlackUser {
-  slack_userId        String                 @id
-  roles               UserRole[]
+  user_id             String                 @id @unique
+  roles               String[]
   is_staff            Boolean                @default(false)
   banned              Boolean                @default(false)
   ban_reason          String?
   permission_requests BotPermissionRequest[]
+  created_on          DateTime               @default(now())
+  updated_at          DateTime               @updatedAt
 }
 
-model UserRole {
-  id                String      @id @default(uuid())
-  role_name         String
-  role_description  String
-  users             SlackUser[]
-  slack_userGroupId String?
-}
 
 model BotPermissionRequest {
-  id      String    @id @default(uuid())
-  user    SlackUser @relation(references: [slack_userId], fields: [user_id])
-  user_id String
+  id         String    @id @default(uuid())
+  user       SlackUser @relation(references: [user_id], fields: [user_id])
+  user_id    String
+  role       String @default("community")
+  reason     String
+  status     String
+  created_on DateTime  @default(now())
+  updated_at DateTime  @updatedAt
 }
