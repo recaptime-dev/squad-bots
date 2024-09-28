@@ -1,17 +1,25 @@
 {
-  "name": "bolt-ts-starter-template",
-  "version": "1.0.0",
+  "name": "@recaptimebot/slack",
+  "version": "0.1.0",
   "description": "A scaffold template for Slack apps",
   "main": "app.js",
   "scripts": {
     "start": "npm run start:hackclub",
     "dev": "npm run dev:hackclub",
+    "gen": "npm run prisma:generate",
     "start:hackclub": "dotenvx run -f .env.production -- ts-node ./app.ts",
-    "dev:hackclub": "dotenvx run -f .env.production -- ts-node-dev ./app.ts",
-    "lint": "eslint . --ext .ts"
+    "dev:hackclub": "dotenvx run -f .env -- ts-node-dev ./app.ts",
+    "lint": "eslint . --ext .ts",
+    "migrate:dev": "dotenvx run -f .env -- prisma migrate dev",
+    "migrate:prod": "dotenvx run -f .env.production -- prisma migrate deploy",
+    "prisma:generate": "prisma generate"
   },
-  "author": "Slack Technologies, LLC",
-  "license": "MIT",
+  "author": {
+    "name": "Andrei Jiroh Halili",
+    "email": "ajhalili2006@crew.recaptime.dev",
+    "url": "https://andreijiroh.dev"
+  },
+  "license": "MPL-2.0",
   "keywords": [
     "slack",
     "bolt",
@@ -20,14 +28,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/slack-samples/bolt-ts-starter-template.git"
+    "url": "https://github.com/recaptime-dev/squad-bots"
   },
   "bugs": {
-    "url": "https://github.com/slack-samples/bolt-ts-starter-template/issues"
+    "url": "https://github.com/recaptime-dev/community/issues"
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.14.1",
-    "@prisma/client": "^5.19.1",
+    "@prisma/client": "^5.20.0",
     "@slack/bolt": "^3.21.1",
     "dotenv": "~16.4.5",
     "ts-node": "^10.9.2"
@@ -39,7 +47,7 @@
     "eslint-config-airbnb-base": "~15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-plugin-import": "~2.29.1",
-    "prisma": "^5.19.1",
+    "prisma": "^5.20.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.5.4"
   }

@@ -18,9 +18,12 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "quotes": [2, "double", {
+            "allowTemplateLiterals": true
+        }],
         "object-curly-newline": "off",
         "camelcase": "off",
-        "no-console": "off",
+        "no-console": "warn",
         "import/extensions": [
             "error",
             "ignorePackages",
