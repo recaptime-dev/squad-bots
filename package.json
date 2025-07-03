@@ -16,12 +16,12 @@
   },
   "homepage": "https://github.com/recaptime-dev/squad-bots#readme",
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.8.3"
   },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
-    "@slack/bolt": "^3.21.4"
+    "@slack/bolt": "^4.4.0"
   }
 }
