@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/recaptime-dev/squad-bots#readme",
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "typescript": "^6.0.0"
   },
   "workspaces": [
     "packages/*"
